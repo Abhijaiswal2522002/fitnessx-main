@@ -12,6 +12,8 @@
     "@reduxjs/toolkit": "^2.5.1",
     "agora-react-uikit": "^1.2.0",
     "axios": "^1.8.4",
+    "baseline-browser-mapping": "^2.10.0",
+    "caniuse-lite": "^1.0.30001775",
     "cra-template": "1.2.0",
     "dayjs": "^1.11.13",
     "emailjs-com": "^3.2.0",
@@ -52,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
