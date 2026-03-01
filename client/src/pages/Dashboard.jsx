@@ -68,7 +68,6 @@ const CardWrapper = styled.div`
 `;
 
 const Dashboard = () => {
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState();
   const [buttonLoading, setButtonLoading] = useState(false);
   const [todaysWorkouts, setTodaysWorkouts] = useState([]);
@@ -80,29 +79,23 @@ const Dashboard = () => {
 
   const dashboardData = async () => {
     try {
-      setLoading(true);
       const token = localStorage.getItem("fittrack-app-token");
       const res = await getDashboardDetails(token);
       setData(res.data);
       console.log(res.data);
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
   const getTodaysWorkout = async () => {
     try {
-      setLoading(true);
       const token = localStorage.getItem("fittrack-app-token");
       const res = await getWorkouts(token, "");
       setTodaysWorkouts(res?.data?.todaysWorkouts);
       console.log(res.data);
     } catch (error) {
       console.error("Error fetching today's workouts:", error);
-    } finally {
-      setLoading(false);
     }
   };
 

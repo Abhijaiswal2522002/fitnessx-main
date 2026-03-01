@@ -1,7 +1,10 @@
 import path from 'path';
+import nodeExternals from 'webpack-node-externals';
 
 export default {
-  entry: './index.js',  // Path to your entry file
+  target: 'node',                // build for Node.js environment
+  entry: './index.js',           // Path to your entry file
+  externals: [nodeExternals()],  // don't bundle dependencies in node_modules
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js',
@@ -19,8 +22,6 @@ export default {
   },
   resolve: {
     extensions: ['.js'],
-    fallback: {
-        fs: false
-      }
+    // no browser fallbacks needed for a node target
   },
 };

@@ -42,7 +42,7 @@ const Button = styled.button`
 
 const ChatPage = () => {
   const [socket, setSocket] = useState(null);
-  const [userId, setUserId] = useState("User" + Math.floor(Math.random() * 1000));
+  const [userId] = useState("User" + Math.floor(Math.random() * 1000));
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
@@ -62,7 +62,7 @@ const ChatPage = () => {
     });
 
     return () => newSocket.disconnect();
-  }, []);
+  }, [userId]);
 
   const sendMessage = () => {
     if (message.trim() && socket) {
